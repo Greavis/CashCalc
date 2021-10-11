@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashCalc", "CashCalc.csproj", "{58F8C9A5-B788-4450-955A-EA4F396D834C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58F8C9A5-B788-4450-955A-EA4F396D834C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F8C9A5-B788-4450-955A-EA4F396D834C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F8C9A5-B788-4450-955A-EA4F396D834C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F8C9A5-B788-4450-955A-EA4F396D834C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {926F3E49-EFB8-4D62-9072-E3F5F7E20609}
+	EndGlobalSection
+EndGlobal
