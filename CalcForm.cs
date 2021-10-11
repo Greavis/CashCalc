@@ -18,6 +18,8 @@ namespace CashCalc
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            dataCon db = new dataCon();
+            db.closeConnection();
             this.Close();
         }
 
@@ -55,7 +57,7 @@ namespace CashCalc
             //}
             
             usernameLabel.Text = PublicData.UserName;
-
+            db.closeConnection();
         }
 
         public void CalcButton_Click(object sender, EventArgs e)
@@ -71,8 +73,7 @@ namespace CashCalc
 
             string textMagazine = magazineCombo.Text; //магазин
             //int textExp = Convert.ToInt32(expBox); //стаж
-            //int EmployeCountTemp = 
-            //int textEpmloyeCount = Convert.ToInt32(); //количество сотрудников в смене ----------------- настроить через условие и булевую наверное
+            int textEpmloyeCount; //количество сотрудников в смене ----------------- настроить через условие и булевую наверное
             double hours = Convert.ToDouble(hoursCount.Value); //количество часов с точкой
 
             double textSummAmount = textPrincipalAmount + textAksAmount + textPhoneOrder; //нужно вычитать сумму телефонов под заказ в других выражениях
@@ -87,6 +88,19 @@ namespace CashCalc
             double percent2;
             double percent3;
             int minAmoutPerDay;
+
+            if (emplCount1.Checked)
+            {
+                emplCount2.Checked = false;
+                emplCount2.Update();
+                textEpmloyeCount = 1;
+            }
+            else
+            {
+                emplCount1.Checked = false;
+                emplCount1.Update();
+                textEpmloyeCount = 2;
+            }
 
             switch (textMagazine)
             {
@@ -247,6 +261,143 @@ namespace CashCalc
             {
                 principalAmount.Text = "";
                 principalAmount.Update();
+            }
+        }
+
+        private void principalAmount_Leave(object sender, EventArgs e)
+        {
+            if(principalAmount.Text == "")
+            {
+                principalAmount.Text = "0";
+                principalAmount.Update();
+            }
+        }
+
+        private void aksesAmount_Click(object sender, EventArgs e)
+        {
+            if(aksesAmount.Text == "0")
+            {
+                aksesAmount.Text = "";
+                aksesAmount.Update();
+            }
+        }
+
+        private void aksesAmount_Leave(object sender, EventArgs e)
+        {
+            if(aksesAmount.Text == "")
+            {
+                aksesAmount.Text = "0";
+                aksesAmount.Update();
+            }
+        }
+
+        private void phoneOrderCount_Click(object sender, EventArgs e)
+        {
+            if(phoneOrderCount.Text == "0")
+            {
+                phoneOrderCount.Text = "";
+                phoneOrderCount.Update();
+            }
+        }
+
+        private void phoneOrderCount_Leave(object sender, EventArgs e)
+        {
+            if(phoneOrderCount.Text == "")
+            {
+                phoneOrderCount.Text = "0";
+                phoneOrderCount.Update();
+            }
+        }
+
+        private void settingsCount_Click(object sender, EventArgs e)
+        {
+            if (settingsCount.Text == "0")
+            {
+                settingsCount.Text = "";
+                settingsCount.Update();
+            }
+        }
+
+        private void settingsCount_Leave(object sender, EventArgs e)
+        {
+            if (settingsCount.Text == "")
+            {
+                settingsCount.Text = "0";
+               settingsCount.Update();
+            }
+        }
+
+        private void repairs30_Click(object sender, EventArgs e)
+        {
+            if (repairs30.Text == "0")
+            {
+                repairs30.Text = "";
+               repairs30.Update();
+            }
+        }
+
+        private void repairs30_Leave(object sender, EventArgs e)
+        {
+            if (repairs30.Text == "")
+            {
+                repairs30.Text = "0";
+                repairs30.Update();
+            }
+        }
+
+        private void repairs50_Click(object sender, EventArgs e)
+        {
+            if (repairs50.Text == "0")
+            {
+                repairs50.Text = "";
+                repairs50.Update();
+            }
+        }
+
+        private void repairs50_Leave(object sender, EventArgs e)
+        {
+            if (repairs50.Text == "")
+            {
+                repairs50.Text = "0";
+                repairs50.Update();
+            }
+        }
+
+        private void bonusesCount_Click(object sender, EventArgs e)
+        {
+            if (bonusesCount.Text == "0")
+            {
+                bonusesCount.Text = "";
+                bonusesCount.Update();
+            }
+        }
+
+        private void bonusesCount_Leave(object sender, EventArgs e)
+        {
+            if (bonusesCount.Text == "")
+            {
+                bonusesCount.Text = "0";
+                bonusesCount.Update();
+            }
+        }
+
+        private void phonePercent35_Click(object sender, EventArgs e)
+        {
+            phonePercent35.Checked = true;
+            if (phonePercent35.Checked)
+            {
+                phonePercent68.Checked = false;
+                phonePercent68.Update();
+            }
+        }
+
+        private void phonePercent68_Click(object sender, EventArgs e)
+        {
+            phonePercent68.Checked = true;
+            if (phonePercent68.Checked)
+            {
+                phonePercent35.Checked = false;
+                phonePercent35.Update();
             }
         }
     }

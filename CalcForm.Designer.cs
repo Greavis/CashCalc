@@ -49,9 +49,7 @@ namespace CashCalc
             this.aksesAmount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.phoneOrderCount = new System.Windows.Forms.TextBox();
-            this.radio13proc = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.radio68proc = new System.Windows.Forms.RadioButton();
             this.checkBoxCardPay = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.settingsCount = new System.Windows.Forms.TextBox();
@@ -69,12 +67,15 @@ namespace CashCalc
             this.label16 = new System.Windows.Forms.Label();
             this.monthSalary = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.phonePercent68 = new System.Windows.Forms.CheckBox();
+            this.phonePercent35 = new System.Windows.Forms.CheckBox();
             this.hoursCount = new System.Windows.Forms.NumericUpDown();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expBox)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hoursCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,12 +158,14 @@ namespace CashCalc
             this.emplCount1.AutoSize = true;
             this.emplCount1.Checked = true;
             this.emplCount1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.emplCount1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.emplCount1.ForeColor = System.Drawing.Color.White;
             this.emplCount1.Location = new System.Drawing.Point(138, 179);
             this.emplCount1.Name = "emplCount1";
-            this.emplCount1.Size = new System.Drawing.Size(31, 19);
+            this.emplCount1.Size = new System.Drawing.Size(30, 19);
             this.emplCount1.TabIndex = 10;
             this.emplCount1.TabStop = true;
+            this.emplCount1.Tag = "employe";
             this.emplCount1.Text = "1";
             this.emplCount1.UseVisualStyleBackColor = true;
             // 
@@ -170,11 +173,13 @@ namespace CashCalc
             // 
             this.emplCount2.AutoSize = true;
             this.emplCount2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.emplCount2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.emplCount2.ForeColor = System.Drawing.Color.White;
             this.emplCount2.Location = new System.Drawing.Point(175, 179);
             this.emplCount2.Name = "emplCount2";
-            this.emplCount2.Size = new System.Drawing.Size(31, 19);
+            this.emplCount2.Size = new System.Drawing.Size(30, 19);
             this.emplCount2.TabIndex = 11;
+            this.emplCount2.Tag = "employe";
             this.emplCount2.Text = "2";
             this.emplCount2.UseVisualStyleBackColor = true;
             // 
@@ -253,6 +258,7 @@ namespace CashCalc
             this.principalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.principalAmount.Click += new System.EventHandler(this.principalAmount_Click);
             this.principalAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.principalAmount_KeyPress);
+            this.principalAmount.Leave += new System.EventHandler(this.principalAmount_Leave);
             // 
             // label8
             // 
@@ -272,7 +278,9 @@ namespace CashCalc
             this.aksesAmount.TabIndex = 20;
             this.aksesAmount.Text = "0";
             this.aksesAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.aksesAmount.Click += new System.EventHandler(this.aksesAmount_Click);
             this.aksesAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.aksesAmount_KeyPress);
+            this.aksesAmount.Leave += new System.EventHandler(this.aksesAmount_Leave);
             // 
             // label9
             // 
@@ -293,21 +301,9 @@ namespace CashCalc
             this.phoneOrderCount.TabIndex = 22;
             this.phoneOrderCount.Text = "0";
             this.phoneOrderCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.phoneOrderCount.Click += new System.EventHandler(this.phoneOrderCount_Click);
             this.phoneOrderCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneOrderCount_KeyPress);
-            // 
-            // radio13proc
-            // 
-            this.radio13proc.AutoSize = true;
-            this.radio13proc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.radio13proc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio13proc.ForeColor = System.Drawing.Color.White;
-            this.radio13proc.Location = new System.Drawing.Point(276, 229);
-            this.radio13proc.Name = "radio13proc";
-            this.radio13proc.Size = new System.Drawing.Size(81, 19);
-            this.radio13proc.TabIndex = 23;
-            this.radio13proc.TabStop = true;
-            this.radio13proc.Text = "от 1 до 3%";
-            this.radio13proc.UseVisualStyleBackColor = false;
+            this.phoneOrderCount.Leave += new System.EventHandler(this.phoneOrderCount_Leave);
             // 
             // label10
             // 
@@ -320,29 +316,16 @@ namespace CashCalc
             this.label10.TabIndex = 24;
             this.label10.Text = "наценка";
             // 
-            // radio68proc
-            // 
-            this.radio68proc.AutoSize = true;
-            this.radio68proc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.radio68proc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio68proc.ForeColor = System.Drawing.Color.White;
-            this.radio68proc.Location = new System.Drawing.Point(276, 255);
-            this.radio68proc.Name = "radio68proc";
-            this.radio68proc.Size = new System.Drawing.Size(81, 19);
-            this.radio68proc.TabIndex = 25;
-            this.radio68proc.TabStop = true;
-            this.radio68proc.Text = "от 6 до 8%";
-            this.radio68proc.UseVisualStyleBackColor = false;
-            // 
             // checkBoxCardPay
             // 
             this.checkBoxCardPay.AutoSize = true;
             this.checkBoxCardPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.checkBoxCardPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxCardPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxCardPay.ForeColor = System.Drawing.Color.White;
-            this.checkBoxCardPay.Location = new System.Drawing.Point(276, 281);
+            this.checkBoxCardPay.Location = new System.Drawing.Point(24, 105);
             this.checkBoxCardPay.Name = "checkBoxCardPay";
-            this.checkBoxCardPay.Size = new System.Drawing.Size(107, 19);
+            this.checkBoxCardPay.Size = new System.Drawing.Size(104, 19);
             this.checkBoxCardPay.TabIndex = 26;
             this.checkBoxCardPay.Text = "Оплата картой";
             this.checkBoxCardPay.UseVisualStyleBackColor = false;
@@ -365,7 +348,9 @@ namespace CashCalc
             this.settingsCount.TabIndex = 28;
             this.settingsCount.Text = "0";
             this.settingsCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.settingsCount.Click += new System.EventHandler(this.settingsCount_Click);
             this.settingsCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.settingsCount_KeyPress);
+            this.settingsCount.Leave += new System.EventHandler(this.settingsCount_Leave);
             // 
             // label12
             // 
@@ -385,7 +370,9 @@ namespace CashCalc
             this.repairs30.TabIndex = 30;
             this.repairs30.Text = "0";
             this.repairs30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.repairs30.Click += new System.EventHandler(this.repairs30_Click);
             this.repairs30.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.repairs30_KeyPress);
+            this.repairs30.Leave += new System.EventHandler(this.repairs30_Leave);
             // 
             // repairs50
             // 
@@ -395,7 +382,9 @@ namespace CashCalc
             this.repairs50.TabIndex = 32;
             this.repairs50.Text = "0";
             this.repairs50.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.repairs50.Click += new System.EventHandler(this.repairs50_Click);
             this.repairs50.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.repairs50_KeyPress);
+            this.repairs50.Leave += new System.EventHandler(this.repairs50_Leave);
             // 
             // label13
             // 
@@ -415,7 +404,9 @@ namespace CashCalc
             this.bonusesCount.TabIndex = 34;
             this.bonusesCount.Text = "0";
             this.bonusesCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.bonusesCount.Click += new System.EventHandler(this.bonusesCount_Click);
             this.bonusesCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bonusesCount_KeyPress);
+            this.bonusesCount.Leave += new System.EventHandler(this.bonusesCount_Leave);
             // 
             // label14
             // 
@@ -511,10 +502,43 @@ namespace CashCalc
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.phonePercent68);
+            this.panel3.Controls.Add(this.phonePercent35);
+            this.panel3.Controls.Add(this.checkBoxCardPay);
             this.panel3.Location = new System.Drawing.Point(248, 160);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(157, 149);
+            this.panel3.Size = new System.Drawing.Size(157, 136);
             this.panel3.TabIndex = 10;
+            // 
+            // phonePercent68
+            // 
+            this.phonePercent68.AutoSize = true;
+            this.phonePercent68.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.phonePercent68.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.phonePercent68.ForeColor = System.Drawing.Color.White;
+            this.phonePercent68.Location = new System.Drawing.Point(78, 70);
+            this.phonePercent68.Name = "phonePercent68";
+            this.phonePercent68.Size = new System.Drawing.Size(50, 19);
+            this.phonePercent68.TabIndex = 1;
+            this.phonePercent68.Text = "6-8%";
+            this.phonePercent68.UseVisualStyleBackColor = true;
+            this.phonePercent68.Click += new System.EventHandler(this.phonePercent68_Click);
+            // 
+            // phonePercent35
+            // 
+            this.phonePercent35.AutoSize = true;
+            this.phonePercent35.Checked = true;
+            this.phonePercent35.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.phonePercent35.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.phonePercent35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.phonePercent35.ForeColor = System.Drawing.Color.White;
+            this.phonePercent35.Location = new System.Drawing.Point(21, 70);
+            this.phonePercent35.Name = "phonePercent35";
+            this.phonePercent35.Size = new System.Drawing.Size(50, 19);
+            this.phonePercent35.TabIndex = 0;
+            this.phonePercent35.Text = "3-5%";
+            this.phonePercent35.UseVisualStyleBackColor = true;
+            this.phonePercent35.Click += new System.EventHandler(this.phonePercent35_Click);
             // 
             // hoursCount
             // 
@@ -564,10 +588,7 @@ namespace CashCalc
             this.Controls.Add(this.label12);
             this.Controls.Add(this.settingsCount);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.checkBoxCardPay);
-            this.Controls.Add(this.radio68proc);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.radio13proc);
             this.Controls.Add(this.phoneOrderCount);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.aksesAmount);
@@ -597,6 +618,8 @@ namespace CashCalc
             ((System.ComponentModel.ISupportInitialize)(this.expBox)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hoursCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -625,9 +648,7 @@ namespace CashCalc
         private System.Windows.Forms.TextBox aksesAmount;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox phoneOrderCount;
-        private System.Windows.Forms.RadioButton radio13proc;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radio68proc;
         private System.Windows.Forms.CheckBox checkBoxCardPay;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox settingsCount;
@@ -647,5 +668,7 @@ namespace CashCalc
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.NumericUpDown hoursCount;
         private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.CheckBox phonePercent68;
+        private System.Windows.Forms.CheckBox phonePercent35;
     }
 }
