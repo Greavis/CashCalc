@@ -71,6 +71,7 @@ namespace CashCalc
             this.phonePercent35 = new System.Windows.Forms.CheckBox();
             this.hoursCount = new System.Windows.Forms.NumericUpDown();
             this.usernameLabel = new System.Windows.Forms.Label();
+            this.tip = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expBox)).BeginInit();
@@ -199,6 +200,8 @@ namespace CashCalc
             // monthCalendar
             // 
             this.monthCalendar.Location = new System.Drawing.Point(22, 256);
+            this.monthCalendar.MonthlyBoldedDates = new System.DateTime[] {
+        new System.DateTime(2021, 10, 13, 0, 0, 0, 0)};
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 13;
             // 
@@ -569,12 +572,22 @@ namespace CashCalc
             this.usernameLabel.TabIndex = 39;
             this.usernameLabel.Text = "username";
             // 
+            // tip
+            // 
+            this.tip.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tip.Location = new System.Drawing.Point(43, 194);
+            this.tip.Name = "tip";
+            this.tip.Size = new System.Drawing.Size(150, 14);
+            this.tip.TabIndex = 40;
+            this.tip.Text = "только для Меньшикова";
+            // 
             // CalcForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(720, 462);
+            this.Controls.Add(this.tip);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.hoursCount);
             this.Controls.Add(this.monthSalary);
@@ -611,6 +624,7 @@ namespace CashCalc
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CalcForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CalcForm";
             this.Load += new System.EventHandler(this.CalcForm_Load);
             this.panel1.ResumeLayout(false);
@@ -670,5 +684,6 @@ namespace CashCalc
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.CheckBox phonePercent68;
         private System.Windows.Forms.CheckBox phonePercent35;
+        private System.Windows.Forms.Label tip;
     }
 }

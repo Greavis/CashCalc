@@ -48,7 +48,7 @@ namespace CashCalc
             lastPoint = new Point(e.X, e.Y);
         }
 
-        private void regBtn_Click(object sender, EventArgs e)
+        private void regBtn_Click(object sender, EventArgs e) //-------------------------------кнопка регистрации
         {
             string SqlExpression = $"INSERT INTO Users (login, password) VALUES ('{loginField.Text}', '{passField.Text}')";
             string SqlCreateDB = $"CREATE TABLE '{loginField.Text}' ('id' INTEGER NOT NULL UNIQUE,'data' TEXT NOT NULL,'cash' INTEGER NOT NULL,PRIMARY KEY('id' AUTOINCREMENT))";
@@ -74,8 +74,8 @@ namespace CashCalc
             db.openConnection();
             DataTable table = new DataTable();
             SqliteDataAdapter adapter = new SqliteDataAdapter();
-            SqliteCommand loginMatch = new SqliteCommand($"SELECT * FROM Users WHERE login='{loginField.Text}' AND password='{passField.Text}'", db.getConnection());
-            adapter.SelectCommand = loginMatch;
+            SqliteCommand loginWrite = new SqliteCommand($"SELECT * FROM Users WHERE login='{loginField.Text}' AND password='{passField.Text}'", db.getConnection());
+            adapter.SelectCommand = loginWrite;
             adapter.Fill(table);
             
             if (table.Rows.Count == 0)
@@ -84,22 +84,22 @@ namespace CashCalc
                 commandCreateUser.ExecuteNonQuery();
                 SqliteCommand commandCreateDB = new SqliteCommand(SqlCreateDB, db.getConnection());
                 commandCreateDB.ExecuteNonQuery();
-                MessageBox.Show("OK");
+                MessageBox.Show("Пользователь добавлен");
             }
             else if(table.Rows.Count > 0)
             {
-                MessageBox.Show("Юзер уже есть");
+                MessageBox.Show("Пользователь уже существует");
                 return;
             }
             else
             {
-                MessageBox.Show("хз.. сделай скрин");
+                MessageBox.Show("хз.. нужен файл log.txt из папки программы");
                 return;
             }
             db.closeConnection();
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
+        private void loginBtn_Click(object sender, EventArgs e) //---------------------кнопка логин
         {
             dataCon db = new dataCon();
             if (loginField.Text == "")
@@ -113,7 +113,7 @@ namespace CashCalc
                 return;
             }
                 
-            if (CheckUser())
+            if (CheckPassword())
             {
                 PublicData.UserName = loginField.Text;
 
@@ -122,17 +122,34 @@ namespace CashCalc
                 mainWondow.Show();
                 return;
             }
-            else MessageBox.Show("Хуй");
+            else MessageBox.Show("Поле \"логин\" или \"пароль\" введены не верно");
         }
-        public Boolean CheckUser()
+        public Boolean CheckUser() //---------проверка существует ли в базе такой пользователь по нику
         {
             dataCon db = new dataCon();
 
             DataTable table = new DataTable();
             SqliteDataAdapter adapter = new SqliteDataAdapter();
-            SqliteCommand loginMatch = new SqliteCommand($"SELECT * FROM Users WHERE login='{loginField.Text}' AND password='{passField.Text}'", db.getConnection());
+            SqliteCommand loginMatch = new SqliteCommand($"SELECT * FROM Users WHERE login='{loginField.Text}'", db.getConnection());
 
             adapter.SelectCommand = loginMatch;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                return true;
+            }
+            else return false;
+        }
+        public Boolean CheckPassword() //-----------------------------проверка совпадения логина и пароля
+        {
+            dataCon db = new dataCon();
+
+            DataTable table = new DataTable();
+            SqliteDataAdapter adapter = new SqliteDataAdapter();
+            SqliteCommand passAndLoginMatch = new SqliteCommand($"SELECT * FROM Users WHERE login='{loginField.Text}' AND password='{passField.Text}'", db.getConnection());
+
+            adapter.SelectCommand = passAndLoginMatch;
             adapter.Fill(table);
 
             if (table.Rows.Count > 0)

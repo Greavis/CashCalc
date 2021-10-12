@@ -21,6 +21,7 @@ namespace CashCalc
             dataCon db = new dataCon();
             db.closeConnection();
             this.Close();
+            Application.Exit();
         }
 
         Point lastPoint;
@@ -115,17 +116,31 @@ namespace CashCalc
                     getCashPerDay();
                     break;
                 case "Меньшикова":
-                    //if (textEmployeCount == 2)
-                    //{ //-----------------------------------------------добавить выше условие для всех магазинов на количество сотрудников или
-                    percentStair3 = 20000; //-----------------------------------------------сделать кейсы типа <магазин1чел> и <магазин2чел>
-                    percentStair2 = 18000;
-                    percentStair1 = 13000;
-                    minAmoutPerDay = 13000;
-                    percent3 = 0.06;
-                    percent2 = 0.05;
-                    percent1 = 0.04;
-                    getCashPerDay();
-                    break;
+                    if (emplCount1.Checked)
+                    {
+                        percentStair3 = 20000;
+                        percentStair2 = 18000;
+                        percentStair1 = 13000;
+                        minAmoutPerDay = 13000;
+                        percent3 = 0.06;
+                        percent2 = 0.05;
+                        percent1 = 0.04;
+                        getCashPerDay();
+                        break;
+                    }
+                    else
+                    {
+                        percentStair3 = 16000;
+                        percentStair2 = 11000;
+                        percentStair1 = 9000;
+                        minAmoutPerDay = 11000;
+                        percent3 = 0.05;
+                        percent2 = 0.04;
+                        percent1 = 0.03;
+                        getCashPerDay();
+                        break;
+                    }
+                    
                 case "Центр":
                     percentStair3 = 15000;
                     percentStair2 = 10000;

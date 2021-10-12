@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashCalc", "CashCalc.csproj", "{58F8C9A5-B788-4450-955A-EA4F396D834C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CashCalc", "CashCalc.csproj", "{58F8C9A5-B788-4450-955A-EA4F396D834C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
